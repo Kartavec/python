@@ -1,0 +1,15 @@
+- first_name: John
+  followers: 987
+  last_name: Smith
+  location: London
+  online: 'true'
+- first_name: Jane
+  followers: 123
+  last_name: South
+  location: New Yor
+  online: 'true'
+- first_name: Jill
+  followers: 456
+  last_name: Silky
+  location: Moscow
+  online: 'true'

@@ -1,0 +1,14 @@
+"- !!python/object/apply:collections.OrderedDict\n  - - - articul\n      - UX31E\n\
+  \    - - name\n      - ASUS ZENBOOK\n    - - price\n      - '44400'\n    - - vendor\n\
+  \      - Asus\n    - - country\n      - China\n    - - images\n      - http://shopexpress.difocus.ru/alboms/3/3/zenbook.jpg\n\
+  - !!python/object/apply:collections.OrderedDict\n  - - - articul\n      - MBA-123\n\
+  \    - - name\n      - 13-inch MacBook Air\n    - - price\n      - '45000'\n   \
+  \ - - vendor\n      - Apple\n    - - country\n      - China\n    - - images\n  \
+  \    - http://shopexpress.difocus.ru/alboms/3/3/apple-air-13.jpg\n- !!python/object/apply:collections.OrderedDict\n\
+  \  - - - articul\n      - HD-8838\n    - - name\n      - Philips Saeco HD 8838\n\
+  \    - - price\n      - '27462'\n    - - vendor\n      - Philips\n    - - country\n\
+  \      - Russia\n    - - images\n      - http://shopexpress.difocus.ru/alboms/3/3/saeco-hd-8838.jpg\n\
+  - !!python/object/apply:collections.OrderedDict\n  - - - articul\n      - HD-8838\n\
+  \    - - name\n      - Delonghi ECAM 23.210\n    - - price\n      - '27462'\n  \
+  \  - - vendor\n      - Delonghi\n    - - country\n      - Italy\n    - - images\n\
+  \      - http://shopexpress.difocus.ru/alboms/3/3/delonghi.jpg"

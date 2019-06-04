@@ -1,0 +1,23 @@
+[
+    {
+        "first_name": "John",
+        "last_name": "Smith",
+        "location": "London",
+        "online": "true",
+        "followers": 987
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "South",
+        "location": "New Yor",
+        "online": "true",
+        "followers": 123
+    },
+    {
+        "first_name": "Jill",
+        "last_name": "Silky",
+        "location": "Moscow",
+        "online": "true",
+        "followers": 456
+    }
+]
