@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  server:
+    build: ./server
+    command: python .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server:/app
+
+  client:
+    build: ./client
+    command: python .
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app
