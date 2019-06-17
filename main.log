@@ -1,0 +1,2 @@
+2019-06-11 21:20:09,441 - INFO - Server was started on localhost:8000
+2019-06-11 21:21:02,028 - ERROR - 404 - request: {'action': 'echo', 'data': 'test', 'time': 1560277261.919612}
