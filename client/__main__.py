@@ -3,8 +3,11 @@
 import json
 import yaml
 import socket
+import hashlib
+import zlib
 from datetime import datetime
 from argparse import ArgumentParser
+
 
 parser = ArgumentParser()
 parser.add_argument(
@@ -14,9 +17,9 @@ parser.add_argument(
 args = parser.parse_args()
 
 host = 'localhost'
-port = 8000
-buffersize = 1024
-encoding = 'utf-8'
+# port = 8000
+# buffersize = 1024
+# encoding = 'utf-8'
 
 if args.config:
     with open(args.config) as file:
@@ -29,13 +32,21 @@ try:
     print('Client started')
     action = input('Enter action: ')
     data = input('Enter data: ')
+    hash_obj = hashlib.sha256()
+    hash_obj.update(
+        str(datetime.now().timestamp()).encode((encoding))
+    )
     request = {
-        'action':action,
+        'action': action,
         'data': data,
-        'time':datetime.now().timestamp()}
+        'time': datetime.now().timestamp(),
+        'user': hash_obj.hexdigest()
+    }
     s_request = json.dumps(request)
-    sock.send(s_request.encode(encoding))
+    b_request = zlib.compress(s_request.encode(encoding))
+    sock.send(b_request)
     response = sock.recv(buffersize)
-    print(response.decode(encoding))
+    b_response = zlib.decompress(response)
+    print(b_response.decode(encoding))
 except KeyboardInterrupt:
     pass
