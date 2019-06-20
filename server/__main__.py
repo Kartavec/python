@@ -4,6 +4,7 @@ import yaml
 import socket
 import json
 import logging
+import select
 from argparse import ArgumentParser
 from handlers import handle_default_request
 from actions import resolve
@@ -50,18 +51,35 @@ logging.basicConfig(
 # data = input('Enter data: ')
 # print(data)
 
+connections = []
+requests = []
+
 try:
     sock = socket.socket()
     sock.bind((host, port))
+    sock.setblocking(False)
     sock.listen(5)
     logging.info(f'Server was started on {host}:{port}')
 
     while True:
-        client, address = sock.accept()
-        b_request = client.recv(buffersize)
-        b_response = handle_default_request(b_request)
-        client.send(b_response)
-        client.close()
+        try:
+            client, address = sock.accept()
+            logging.info(f'client with address {address} was detected')
+            connections.append(client)
+        except:
+            pass
+        rlist, wlist, xlist = select.select(connections, connections, connections, 0)
+
+        for r_client in rlist:
+            b_request = client.recv(buffersize)
+            requests.append(b_request)
+
+        if requests:
+            b_request = requests.pop() #последний элемент
+            b_response = handle_default_request(b_request)
+            for w_client in wlist:
+                w_client.send(b_response)
+
 except KeyboardInterrupt:
     pass
 
