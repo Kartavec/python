@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+1. Реализовать перевод из 10 в 2 систему счисления с использованием стека.
+*/
+
+#define T char
+#define SZ 100
+
+typedef struct Node {
+  T data;
+  struct Node *next;
+} Node;
+
+typedef struct {
+  Node *head;
+  int size;
+} Stack;
+
+int push(Stack *st, T val) {
+  Node *temp = (Node*) malloc(sizeof(Node));
+  if (temp == NULL) return 0;
+
+  temp->data = val;
+  temp->next = st->head;
+
+  st->head = temp;
+  st->size++;
+  return 1;
+}
+
+T pop(Stack *st) {
+  if (st->size == 0) {
+	return -1;
+  }
+  Node *temp = st->head;
+  T result = st->head->data;
+
+  st->head = st->head->next;
+  st->size--;
+  free(temp);
+  return result;
+}
+
+int main(int argc, const char** argv) {
+  Stack s;
+  s.size = 0;
+  s.head = NULL;
+  unsigned int a;
+
+	printf("Enter a ");
+	scanf("%d", &a);
+printf("%s\n", "This is linked list");
+for(; a != 0; a/= 2)
+    {
+        if(a % 2)
+            push(&s, '1');
+        else
+            push(&s, '0');
+    }
+
+  while (s.size > 0) {
+  	printf("%c ", pop(&s));
+  }
+	printf("\n");
+  
+  return 0;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+2. Написать программу, которая определяет, является ли введенная скобочная последовательность правильной. 
+Примеры правильных скобочных выражений: (), ([])(), {}(), ([{}]), 
+неправильных — )(, ())({), (, ])}), [(]) для скобок [,(,{.
+Например: (2+(2*2)) или [2/{5*(4+7)}]
+*/
+
+#include <stdio.h>
+#include <string.h>
+ 
+int is_balance(const char* s){
+    int   i, ds[3];
+    const char* p;
+    const char beg[] = "({[";
+    const char end[] = ")}]";
+    
+    memset(ds, 0, sizeof(ds));
+    for(; *s; ++s){
+        if((p = strchr(beg, *s)) != NULL)
+            ++ds[p - beg];
+        else if((p = strchr(end, *s)) != NULL){
+            if(--ds[p - end] < 0)
+                return 0;
+        }
+    }
+ 
+    for(i = 0; i < 3; ++i){
+        if(ds[i] > 0)
+            return 0;
+    }
+    return 1;
+}
+ 
+int main(void){
+    puts( is_balance(")(, ())({), (, ])}), [(])") ? "yes" : "error" );
+    puts( is_balance("(), ([])(), {}(), ([{}])")  ? "yes" : "error" );
+    return 0;
+}
