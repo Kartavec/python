@@ -68,7 +68,7 @@ def process_games_page(url, frame, category):
                               'store_page': game_link,
                               'full_price': full_price,
                               'discount': discount,
-                              'final_price': full_price,
+                              'final_price': final_price,
                               'category': category
         }, ignore_index=True)
     return frame
