@@ -1,5 +1,6 @@
 import requests
 from lxml import html
+import time
 
 class NewsGathererBase(object):
     site_base_url = None
@@ -32,7 +33,6 @@ class NewsGathererBase(object):
         return news_data.update('aggregator': self.site_base_url)
 
 
-
 class MailRuNewsGather(NewsGathererBase):
     site_base_url = 'https://mail.ru/'
     main_xpath_request = "//div[contains(@class, 'news__list__item')]/a/span[contains(@class, 'text')]/.."
@@ -48,7 +48,7 @@ class MailRuNewsGather(NewsGathererBase):
         news_data = super(MailRuNewsGather, self).postprocess(news_data)
         with requests.get(news_data['url']) as response:
             if not response.ok:
-                raise RuntimeError('failed to get data from {}'.format(self.site_base_url))
+                raise RuntimeError('failed to get data from {}'.format(news_data['url']))
             news_page = html.fromstring(response.text)
             date = news_page.xpath("//span[contains(@class, 'breadcrumbs__item')]/span/span/@datetime")
             source = news_page.xpath("//span[contains(@class, 'breadcrumbs__item')]/span/a/span/text()")
@@ -56,3 +56,37 @@ class MailRuNewsGather(NewsGathererBase):
             news_data['date'] = date[0]
         return news_data
 
+
+class LentaRuNewsGather(NewsGathererBase):
+    site_base_url = 'https://lenta.ru/parts/news/'
+    real_base_url = 'https://lenta.ru'
+    main_xpath_request = "//div[contains(@class, 'news') and contains(@class, 'item')]"
+
+    def process_node(self, node):
+        if 'moslenta' in node[0][0].get('class'): # ignoring Moslenta news
+            return {}
+        ref_node = node[1][0][0]
+        new_piece = {
+            'url': self.real_base_url + ref_node.get('href'), # proper news have only relative urls
+            'heading': ref_node.text,
+            'source': node[0][0].text                         # source is another site section
+        }
+        return new_piece
+
+    def postprocess(self, news_data):
+        if len(news_data) == 0:
+            return None
+        news_data = super(LentaRuNewsGather, self).postprocess(news_data)
+        time.sleep(1) # to get around retries amount
+        with requests.get(news_data['url']) as response:
+            if not response.ok:
+                raise RuntimeError('failed to get data from {}'.format(news_data['url']))
+            news_page = html.fromstring(response.text)
+            date = news_page.xpath("//time[contains(@class, 'g-date')]/@datetime")
+            news_data['date'] = date[0]
+        return news_data
+
+    def process_page(self):
+        # here, loading of "next messages batch" is ignored
+        super(LentaRuNewsGather, self).process_page()
+        self.res = [r for r in self.res if r is not None]
