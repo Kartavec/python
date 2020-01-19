@@ -1,6 +1,7 @@
 import requests
 from lxml import html
 import time
+from pymongo import MongoClient
 
 class NewsGathererBase(object):
     site_base_url = None
@@ -90,3 +91,15 @@ class LentaRuNewsGather(NewsGathererBase):
         # here, loading of "next messages batch" is ignored
         super(LentaRuNewsGather, self).process_page()
         self.res = [r for r in self.res if r is not None]
+
+crawler_types = [MailRuNewsGather, LentaRuNewsGather]
+client = MongoClient('localhost', 27017)
+db = client['news_database']
+news = db.news
+
+for ctype in crawler_types:
+    crawler = ctype()
+    crawler.gather_news()
+    for n in crawler.res:
+        res = news.insert_one(n)
+        print('Inserted id:', res.inserted_id)
