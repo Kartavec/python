@@ -9,6 +9,8 @@ import pymongo
 
 class FillUrlPipeline(object):
     def process_item(self, item, spider):
+        if spider.name != 'game':
+            return item
         base_url = 'https://www.gog.com'
         processed = {
             'game_name': item['title'],
@@ -16,6 +18,7 @@ class FillUrlPipeline(object):
             'publisher': item['publisher'],
             'base_price': item['price']['baseAmount'],
             'final_price': item['price']['finalAmount'],
+            'currency': item['price']['symbol'],
             'url': base_url + item['url']
         }
         return processed
