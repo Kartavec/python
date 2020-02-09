@@ -8,6 +8,15 @@ from pymongo import MongoClient
 from scrapy.pipelines.files import FilesPipeline
 import scrapy
 from settings import COVERS_STORE
+import re
+
+class PdfPipeline(FilesPipeline):
+    def file_path(self, request, response, info):
+        cd = response.headers.getlist('Content-Disposition')
+        for line in cd:
+            if 'filename' in line:
+                return re.search(r'filename="(.*)"', line).group(1)
+        return None
 
 
 class FrogscrapPipeline(FilesPipeline):
