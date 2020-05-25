@@ -5,19 +5,22 @@ def division(divisible, divider):
         return None
 
 
-def convert_to_int(number):
+def convert_to_int(value):
     try:
-        return int(number)
+        return int(value)
     except ValueError:
         return None
 
 
 def main():
     a = convert_to_int(input('Введите делимое: '))
-    b = convert_to_int(input('Введите делитель: '))
+    if a is None:
+        print('Введены некорректные данные, делимое должно быть числом!')
+        return
 
-    if a is None or b is None:
-        print('Введены некорректные данные, делимое и делитель должны быть числами!')
+    b = convert_to_int(input('Введите делитель: '))
+    if b is None:
+        print('Введены некорректные данные, делитель должен быть числом!')
         return
 
     result = division(a, b)
