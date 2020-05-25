@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 venv
+curses_cli_fu.py
+task01_unittest_fu.py
