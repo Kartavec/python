@@ -22,7 +22,7 @@ def print_help():
 Введены некорректные данные! 
              
 Правильный формат ввода:  
-python task01.py %HOURS% %RATE% %BONUS%, 
+python task01.py %HOURS% %RATE% %BONUS% 
                
 Например, 
 python task01.py 12 160 50000
