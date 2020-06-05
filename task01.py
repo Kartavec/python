@@ -18,14 +18,15 @@ def convert_to_int(value):
 
 
 def print_help():
-    message = f'\n' \
-              f'Введены некорректные данные!\n' \
-              f'\n' \
-              f'Правильный формат ввода: \n' \
-              f'python task01.py %HOURS% %RATE% %BONUS%,\n' \
-              f'\n' \
-              f'Например,\n' \
-              f'python task01.py 12 160 50000\n'
+    message = """
+Введены некорректные данные! 
+             
+Правильный формат ввода:  
+python task01.py %HOURS% %RATE% %BONUS%, 
+               
+Например, 
+python task01.py 12 160 50000
+"""
     print(message)
 
 
