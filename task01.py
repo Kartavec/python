@@ -54,11 +54,10 @@ if __name__ == '__main__':
     hours, rate, bonus = converted_values
     salary = get_salary(hours, rate, bonus)
 
-    result =(f'Количество отработанных часов: {hours}\n'
-             f'Ставка в час: {rate}\n'
-             f'Бонус: {bonus}\n'
-             f'\n'
-             f'Заработная плата: {salary}')
+    result = (f'Количество отработанных часов: {hours}\n'
+              f'Ставка в час: {rate}\n'
+              f'Бонус: {bonus}\n'
+              f'\n'
+              f'Заработная плата: {salary}')
 
     print(result)
-
