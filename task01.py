@@ -13,4 +13,4 @@ if __name__ == '__main__':
         if input_data == '':
             break
         else:
-            write_to_file('task01_output.txt', input_data, 'a')
+            write_to_file('output/task01.txt', input_data, 'a')

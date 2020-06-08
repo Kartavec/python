@@ -32,7 +32,7 @@ def get_numbers_from_file(filename):
 
 if __name__ == '__main__':
     numbers = generate_numbers(30, 1, 150)
-    output_filename = 'task05_output.txt'
+    output_filename = 'output/task05.txt'
 
     data = ' '.join(convert_to_str(numbers))
     write_to_file(output_filename, data, 'w')

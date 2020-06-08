@@ -21,7 +21,7 @@ def convert_row(row):
 
 if __name__ == '__main__':
     filename = 'data/task04.txt'
-    output_filename = 'task04_output.txt'
+    output_filename = 'output/task04.txt'
     rows = split_text_by_rows(filename)
     for row in rows:
         rus_row = convert_row(row)
