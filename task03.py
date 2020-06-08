@@ -26,7 +26,7 @@ def get_average_salary(members_info):
 
 
 if __name__ == '__main__':
-    filename = 'task03.txt'
+    filename = 'data/task03.txt'
     rows = split_text_by_rows(filename)
     members_info = get_members_information(rows)
 

@@ -26,7 +26,7 @@ def print_count_of_words_in_rows(rows):
 
 
 if __name__ == '__main__':
-    input_file = 'task02.txt'
+    input_file = 'data/task02.txt'
     rows = split_text_by_rows(input_file)
 
     print(f'Количество строк в текста - {len(rows)}.')
