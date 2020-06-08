@@ -25,4 +25,4 @@ if __name__ == '__main__':
     rows = split_text_by_rows(filename)
     for row in rows:
         rus_row = convert_row(row)
-        write_to_file(output_filename, rus_row)
+        write_to_file(output_filename, rus_row, 'a')

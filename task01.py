@@ -2,8 +2,8 @@
 # Об окончании ввода данных свидетельствует пустая строка.
 
 
-def write_to_file(filename, data):
-    with open(filename, 'a') as file:
+def write_to_file(filename, data, mode):
+    with open(filename, mode) as file:
         file.write(data + '\n')
 
 
@@ -13,4 +13,4 @@ if __name__ == '__main__':
         if input_data == '':
             break
         else:
-            write_to_file('task01_output.txt', input_data)
+            write_to_file('task01_output.txt', input_data, 'a')
