@@ -8,6 +8,7 @@
 
 import json
 
+from task01 import check_directory
 from task02 import split_text_by_rows
 
 
@@ -36,5 +37,6 @@ if __name__ == '__main__':
     result = [profits,
               {"average_profit": average_profit},
               damages]
+    check_directory(output_filename)
     with open(output_filename, 'w') as file:
         file.write(json.dumps(result, ensure_ascii=False))
