@@ -94,7 +94,7 @@ if __name__ == '__main__':
     order_cell = Cell(120)
     print(order_cell.make_order(11))
 
-    # Расскоментируйте строку, чтобы вызвать ошибку
+    # Расскоментируйте одну из строк, чтобы вызвать ошибку
     # error_cell = Cell('asd')
     # error_cell = cell_2 - cell_1
     # error_cell = cell_2 + 2

@@ -78,19 +78,37 @@ if __name__ == '__main__':
     ]
 
     right_other = [
-        (9, 8, 7),
+        [9, 8, 7],
         [6, 5, 4],
         [3, 2, 1],
+    ]
+
+    dict_matrix = {'1': 1, '2': 2, '3': 3}
+
+    matrix_with_nested_tuple = [
+        [9, 8, 7],
+        [6, 5, 4],
+        (3, 2, 1),
+    ]
+
+    non_matrix_list = [
+        [1, 2, 3],
+        [4], [5],
+        [6], [7], [8], [9]
     ]
 
     my_matrix = Matrix(test)
 
     print(my_matrix)
 
-    # print(my_matrix + other)
+    my_matrix + right_other
+    print(my_matrix)
+    my_matrix + right_other
+    my_matrix + right_other
+    print(my_matrix)
 
-    my_matrix + right_other
-    print(my_matrix)
-    my_matrix + right_other
-    my_matrix + right_other
-    print(my_matrix)
+    # Раскомментируйте одну из строк, чтобы вызвать ошибки
+    # print(my_matrix + other)
+    # print(my_matrix + dict_matrix)
+    # print(my_matrix + matrix_with_nested_tuple)
+    # another_matrix = Matrix(non_matrix_list)

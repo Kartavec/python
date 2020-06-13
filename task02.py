@@ -53,7 +53,6 @@ class Fabric:
 
 
 if __name__ == '__main__':
-    # my_second_coat = Coat('buuubr', -189)
     my_coat = Coat('burb', 199.7)
     print(my_coat.title)
     print(my_coat.size)
@@ -69,3 +68,6 @@ if __name__ == '__main__':
     my_fabric.add_wear(my_coat)
 
     print(my_fabric.consumption)
+
+    # Раскомментируйте одну из строк, чтобы вызвать ошибки
+    # my_second_coat = Coat('buuubr', -189)
