@@ -1,6 +1,15 @@
 from abc import ABC, abstractmethod
 
 
+class WrongArgumentError(Exception):
+    pass
+
+
+def check_wear_argument(argument):
+    if not (isinstance(argument, (int, float)) and argument > 0):
+        raise WrongArgumentError('Для создания одежды аргумент должен быть положительным числом')
+
+
 class AbstractWear(ABC):
     def __init__(self, title):
         self.title = title
@@ -13,6 +22,7 @@ class AbstractWear(ABC):
 
 class Coat(AbstractWear):
     def __init__(self, title, size):
+        check_wear_argument(size)
         super().__init__(title)
         self.size = size
 
@@ -43,7 +53,8 @@ class Fabric:
 
 
 if __name__ == '__main__':
-    my_coat = Coat('burb', 199)
+    # my_second_coat = Coat('buuubr', -189)
+    my_coat = Coat('burb', 199.7)
     print(my_coat.title)
     print(my_coat.size)
     print(my_coat.consumption)
