@@ -35,10 +35,6 @@ def check_month(month):
 
 
 class Date:
-    days = 0
-    months = 0
-    years = 0
-
     def __init__(self, raw_date):
         self.raw_date = raw_date
 
@@ -73,5 +69,9 @@ if __name__ == '__main__':
     print(Date.validate_date('29-02-2020'))
     print(Date.validate_date('30-02-2020'))
     print()
-    print(Date.validate_date('12-may-2020'))
-    print(Date.validate_date('12/11'))
+    # print(Date.validate_date('12-may-2020'))
+    # print(Date.validate_date('12/11'))
+
+    my_date = Date('23-22-2000')
+    print(my_date.parse_date(my_date.raw_date))
+    print(my_date.validate_date(my_date.raw_date))
