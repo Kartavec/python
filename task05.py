@@ -5,27 +5,6 @@ def convert_to_int(value):
         return False
 
 
-# def parse_complex_number(number):
-#     number = number.replace(' ', '')
-#     try:
-#         real_part, imaginary_part = number.split('+')
-#     except ValueError:
-#         return False
-#
-#     if imaginary_part[-1] != 'i':
-#         return False
-#
-#     if imaginary_part == 'i':
-#         imaginary_part = 1
-#     else:
-#         imaginary_part = imaginary_part[:-1]
-#
-#     if convert_to_int(imaginary_part) and convert_to_int(real_part):
-#         return real_part, imaginary_part
-#
-#     return False
-
-
 def parse_complex_number(number):
     number = number.replace(' ', '')
 
