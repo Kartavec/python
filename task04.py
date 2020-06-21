@@ -14,22 +14,30 @@ def print_storage(departament):
         print('Нет такого подразделения')
 
 
+def make_pause(message):
+    print('***********')
+    input(f'{message} >> ENTER')
+
+
 if __name__ == '__main__':
-    # Создание складов
+    make_pause('Создание складов')
     main_warehouse = Warehouse('Main warehouse')
+    print_storage(main_warehouse)
     second_warehouse = Warehouse('Secondary warehouse')
+    print_storage(second_warehouse)
 
-    # Создание офиса
+    make_pause('Создание офиса')
     main_office = Office('Main office')
+    print_storage(main_office)
 
-    # Создание ошибочного заказа на закупку оргтехники через склад
+    make_pause('Создание ошибочного заказа на закупку оргтехники через склада')
     order = {
         'xerа': 'erf',
     }
-
+    print(order)
     main_warehouse.buy(order)
 
-    # Создание корректного заказа
+    make_pause('Создание корректного заказа')
 
     order = {
         'xerox': 5,
@@ -41,15 +49,15 @@ if __name__ == '__main__':
 
     main_warehouse.buy(order)
 
-    # Просмотр хранилища склада и офиса
+    make_pause('Просмотр хранилища склада и офиса после заказа')
     print_storage(main_warehouse)
     print_storage(main_office)
 
-    # Просмотр рандомного ксерокса, статус 'NEW'
+    make_pause('Просмотр рандомного ксерокса, статус "NEW"')
     print(main_warehouse.storage['xerox'][0])
     print()
 
-    # Создание заказа и поставка техники в офис
+    make_pause('Создание заказа и поставка техники в офис')
 
     new_order = {
         'xerox': 3,
@@ -59,47 +67,48 @@ if __name__ == '__main__':
         'desktop': 10
     }
 
+    print(new_order)
     main_warehouse.supply(new_order, main_office)
 
-    # Просмотр хранилища склада и офиса
+    make_pause('Просмотр хранилища склада и офиса')
     print_storage(main_warehouse)
     print_storage(main_office)
 
-    # Получить технику определённой категории хранилища по категории
+    make_pause('Получить технику определённой категории хранилища по категории')
     print(f'Техника в офисе {main_office} категории "xerox"')
     print(main_office.get_devices_by_category('xerox'))
     print()
 
-    # Проверка на правильность указания категории
+    make_pause('Проверка на правильность указания категории')
     print(main_office.get_devices_by_category('xerx'))
     print()
 
-    # Поиск девайся по серийному номеру
+    make_pause('Поиск девайся по серийному номеру')
     serial_number = main_office.get_devices_by_category('printer')['printer'][0].serial_number
     print(main_office.get_device_by_serial(serial_number))
     print()
 
-    # Просмотр рандомного принтера в офисе, статус сменился на 'IN USE'
+    make_pause('Просмотр рандомного принтера в офисе, статус сменился на "IN USE"')
     random_printer = main_office.storage['printer'][0]
     print(random_printer)
 
-    # Просмотр уровня чернил принтера
+    make_pause('Просмотр уровня чернил принтера')
     print(random_printer.ink_level)
 
-    # ЗАправка принтера чернилами
+    make_pause('ЗАправка принтера чернилами')
     random_printer.ink_refill()
     print(random_printer.ink_level)
 
-    # Печать на принтере 10 страниц
+    make_pause('Печать на принтере 10 страниц')
     random_printer.print(10)
     print(random_printer.ink_level)
 
-    # При уровне одного из чернил менее 20 процентов будет выдаваться предупреждение при каждой печати,
-    # при уровне одного из чернил менее 3 процентов, печать остановиться
+    make_pause('При уровне одного из чернил менее 20 процентов будет выдаваться предупреждение при каждой печати, при '
+               'уровне одного из чернил менее 3 процентов, печать остановиться')
     random_printer.print(200)
     print()
 
-    # Аналогичные операции доступны для ксерокса
+    make_pause('Аналогичные операции доступны для ксерокса')
     random_xerox = main_office.storage['xerox'][0]
     print(random_xerox.toner_level)
     random_xerox.toner_refill()
@@ -107,7 +116,7 @@ if __name__ == '__main__':
     random_xerox.print(600)
     print()
 
-    # ТЕхника может поломаться и её можно отправить в сервисный центр
+    make_pause('ТЕхника может поломаться и её можно отправить в сервисный центр')
     random_xerox.set_broken_status()
     print(random_xerox)
 
@@ -117,13 +126,10 @@ if __name__ == '__main__':
 
     print_storage(main_service_center)
 
-    # В сервисном центре можно технику починить и оптравить обратно в офис
+    make_pause('В сервисном центре можно технику починить и оптравить обратно в офис')
 
     main_service_center.repair_device(random_xerox)
     print(random_xerox)
 
     main_service_center.sent_device(main_office, random_xerox)
     print(random_xerox)
-
-    print(random_xerox.__dict__)
-    print(random_printer.ink_level)
