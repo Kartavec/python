@@ -20,6 +20,9 @@ class OfficeEquipment:
     def set_broken_status(self):
         self.status = 'BROKEN'
 
+    def set_repaired_status(self):
+        self.status = 'REPAIRED'
+
     @classmethod
     def instances(cls):
         return cls._instances
@@ -28,6 +31,7 @@ class OfficeEquipment:
 class Printer(OfficeEquipment):
     def __init__(self, brand, model):
         super().__init__(brand, model)
+        self.type = 'printer'
         self._ink_level = {
             'black': 0,
             'yellow': 0,
@@ -53,9 +57,9 @@ class Printer(OfficeEquipment):
         self._ink_status = 'FULL'
 
     def __update_ink_status(self):
-        min_value = min(self._ink_level.items(), key=lambda x: x[1])[1]
+        min_value = int(min(self._ink_level.items(), key=lambda x: x[1])[1])
 
-        if 21.0 < min_value < 95:
+        if 21 < min_value < 95:
             self._ink_status = 'NORMAL'
         elif 3 < min_value < 20:
             self._ink_status = 'LOW'
@@ -77,6 +81,7 @@ class Printer(OfficeEquipment):
 class Xerox(OfficeEquipment):
     def __init__(self, brand, model):
         super().__init__(brand, model)
+        self.type = 'xerox'
         self._toner_level = 0
         self._toner_status = 'EMPTY'
 
@@ -112,12 +117,31 @@ class Xerox(OfficeEquipment):
 
 
 class Scanner(OfficeEquipment):
-    pass
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+        self.type = 'scanner'
 
 
 class Desktop(OfficeEquipment):
-    pass
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+        self.type = 'desktop'
 
 
 class Monitor(OfficeEquipment):
-    pass
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+        self.type = 'monitor'
+
+
+def check_category(category):
+    return category in classes
+
+
+classes = {
+    'xerox': Xerox,
+    'printer': Printer,
+    'scanner': Scanner,
+    'monitor': Monitor,
+    'desktop': Desktop
+}

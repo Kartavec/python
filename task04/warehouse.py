@@ -1,15 +1,7 @@
 import random
 
 from task04.departament import Departament
-from task04.office_equipment import Xerox, Printer, Scanner, Monitor, Desktop, OfficeEquipment
-
-classes = {
-    'xerox': Xerox,
-    'printer': Printer,
-    'scanner': Scanner,
-    'monitor': Monitor,
-    'desktop': Desktop
-}
+from task04.office_equipment import classes
 
 models_in_stock = {
     'xerox': (
@@ -40,20 +32,39 @@ models_in_stock = {
 }
 
 
+def check_order(order):
+    for category in order:
+        if category not in classes:
+            return False
+
+    for category in order:
+        if not isinstance(order[category], int) and order[category] <= 0:
+            return False
+    return True
+
+
 class Warehouse(Departament):
 
-    def supply(self, devices, office):
-        for category in devices:
-            for _ in range(devices[category]):
+    def supply(self, order, office):
+        if not check_order(order):
+            print('Неправильный формат заказа.')
+            return
+        for category in order:
+            for _ in range(order[category]):
                 device = random.choice(self.storage[category])
                 device.set_in_use_status()
                 self.storage[category].remove(device)
-                office.append(category, device)
+                office.add_device(device)
 
-    def buy(self, devices):
-        for category in devices:
-            for _ in range(devices[category]):
+    def buy(self, order):
+        if not check_order(order):
+            print('Неправильный формат заказа.')
+            return
+        for category in order:
+            for _ in range(order[category]):
                 brand, model = random.choice(models_in_stock[category])
                 new_item = classes[category](brand, model)
                 self.storage[category].append(new_item)
 
+    def dump(self, category, device):
+        self.storage[category].remove(device)

@@ -1,85 +1,112 @@
 from task04.office import Office
-from task04.office_equipment import OfficeEquipment, Xerox, Printer
 from task04.warehouse import Warehouse
+from task04.departament import Departament
+from task04.service_center import ServiceCenter
+
+
+def print_storage(departament):
+    if isinstance(departament, Departament):
+        print(f'Оргтехника на складе {departament}:')
+        print(departament.get_all_devices())
+        print(f'Общее воличество: {departament.get_devices_count()}')
+        print()
+    else:
+        print('Нет такого подразделения')
 
 
 if __name__ == '__main__':
-    main_warehouse = Warehouse('Main')
-    second_warehouse = Warehouse('Second')
+    # Создание складов
+    main_warehouse = Warehouse('Main warehouse')
+    second_warehouse = Warehouse('Secondary warehouse')
 
-    for warehouse in main_warehouse.instances():
-        print(warehouse)
+    # Создание офиса
+    main_office = Office('Main office')
 
-    second_warehouse.destroy()
+    # Создание ошибочного заказа на закупку оргтехники через склад
+    order = {
+        'xerа': 'erf',
+    }
 
-    for warehouse in main_warehouse.instances():
-        print(warehouse)
+    main_warehouse.buy(order)
 
-    new_xerox = Xerox('Xerox', 'MN-16')
+    # Создание корректного заказа
 
-    # xeroxes = (('Xerox', 'WorkCentre 3335'),
-    #            ('KYOCERA', 'ECOSYS M2735dn'),
-    #            ('Brother', 'MFC-L5700DN'))
-    #
-    # printers = (('Epson', 'WorkForce WF-7710DWF'),
-    #             ('Canon', 'i-SENSYS MF264dw'),
-    #             ('HP', 'Neverstop Laser 1200n'))
-    #
-    # scanners = (('Canon', 'CanoScan LiDE 400'),
-    #             ('HP', 'Scanjet Professional 3000'),
-    #             ('Epson', 'Perfection V370 Photo'))
-    #
-    # monitors = (('Samsung', 'S24E390HL'),
-    #             ('DELL', 'UltraSharp U2718Q Black'),
-    #             ('Lenovo', 'ThinkVision Y44w-10 65EARAC1EU'))
-    #
-    # desktops = (('LENOVO', 'IdeaCentre 510-15ICK'),
-    #             ('MSI', 'Cubi N 8GL-037RU'),
-    #             ('Acer', 'Veriton ES2730G'))
+    order = {
+        'xerox': 5,
+        'printer': 10,
+        'scanner': 2,
+        'monitor': 15,
+        'desktop': 15
+    }
 
-    my_wh = Warehouse('General')
-    print(my_wh)
+    main_warehouse.buy(order)
 
-    order = {'xerox': 1,
-             'printer': 999}
+    # Просмотр хранилища склада и офиса
+    print_storage(main_warehouse)
+    print_storage(main_office)
 
-    my_wh.buy(order)
+    # Просмотр рандомного ксерокса, статус 'NEW'
+    print(main_warehouse.storage['xerox'][0])
+    print()
 
-    for element in OfficeEquipment.instances():
-        print(element)
+    # Создание заказа и поставка техники в офис
 
-    batch = {'xerox': 1,
-             'printer': 25}
+    new_order = {
+        'xerox': 3,
+        'printer': 7,
+        'scanner': 1,
+        'monitor': 10,
+        'desktop': 10
+    }
 
-    main_office = Office('Main')
-    print(main_office.storage)
-    print(my_wh.storage)
-    my_wh.supply(batch, main_office)
+    main_warehouse.supply(new_order, main_office)
 
-    print(main_office.storage)
-    second_office = Office('Second')
-    print(second_office.storage)
+    # Просмотр хранилища склада и офиса
+    print_storage(main_warehouse)
+    print_storage(main_office)
 
-    serial_num = OfficeEquipment.instances()[1].serial_number
+    # Просмотр рандомного принтера в офисе, статус сменился на 'IN USE'
+    random_printer = main_office.storage['printer'][0]
+    print(random_printer)
 
-    print(my_wh.gei_device_by_serial(serial_num))
-    verx = Xerox('noni', 'sdfsd')
-    print(isinstance(verx, Xerox))
-
-    random_printer = Printer.instances()[5]
-    print(random_printer.__dict__)
+    # Просмотр уровня чернил принтера
     print(random_printer.ink_level)
+
+    # ЗАправка принтера чернилами
     random_printer.ink_refill()
     print(random_printer.ink_level)
 
-    random_printer.print(300)
+    # Печать на принтере 10 страниц
+    random_printer.print(10)
     print(random_printer.ink_level)
 
-    random_xerox = Xerox.instances()[1]
+    # При уровне одного из чернил менее 20 процентов будет выдаваться предупреждение при каждой печати,
+    # при уровне одного из чернил менее 3 процентов, печать остановиться
+    random_printer.print(200)
+    print()
 
+    # Аналогичные операции доступны для ксерокса
+    random_xerox = main_office.storage['xerox'][0]
     print(random_xerox.toner_level)
     random_xerox.toner_refill()
-    random_xerox.print(10)
     print(random_xerox.toner_level)
-    random_xerox.print(1000)
+    random_xerox.print(600)
+    print()
 
+    # ТЕхника может поломаться и её можно отправить в сервисный центр
+    random_xerox.set_broken_status()
+    print(random_xerox)
+
+    main_service_center = ServiceCenter('Main Service Center')
+
+    main_office.sent_device(main_service_center, random_xerox)
+
+    print_storage(main_service_center)
+
+    # В сервисном центре можно технику починить и оптравить обратно в офис
+
+    main_service_center.repair_device(random_xerox)
+    print(random_xerox)
+
+    main_service_center.sent_device(main_office, random_xerox)
+    print(random_xerox)
