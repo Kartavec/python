@@ -54,6 +54,12 @@ class Departament:
             }
         return f'No category with name "{category}"'
 
+    def get_printers_low_ink(self):
+        return [printer for printer in self.storage['printer'] if printer.ink_status == 'LOW']
+
+    def get_printers_empty_ink(self):
+        return [printer for printer in self.storage['printer'] if printer.ink_status == 'EMPTY']
+
     def remove_device(self, category, device):
         self.storage[category].remove(device)
 

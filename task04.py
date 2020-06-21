@@ -133,3 +133,25 @@ if __name__ == '__main__':
 
     main_service_center.sent_device(main_office, random_xerox)
     print(random_xerox)
+
+    make_pause('Получение всех принтеров со статусом чернил "LOW"')
+    for printer in main_office.storage['printer']:
+        printer.ink_refill()
+        printer.print(150)
+    print(main_office.get_printers_low_ink())
+
+    for printer in main_office.get_printers_low_ink():
+        print(printer)
+        print(printer.ink_status)
+        print()
+
+    make_pause('Аналогично для статуса "EMPTY"')
+    for printer in main_office.storage['printer']:
+        printer.ink_refill()
+        printer.print(300)
+    print(main_office.get_printers_low_ink())
+
+    for printer in main_office.get_printers_empty_ink():
+        print(printer)
+        print(printer.ink_status)
+        print()

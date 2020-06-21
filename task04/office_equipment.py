@@ -77,6 +77,10 @@ class Printer(OfficeEquipment):
         return f'Ink level: black - {black}%, cyan - {cyan}%,' \
                f'yellow - {yellow}%, magenta - {magenta}%'
 
+    @property
+    def ink_status(self):
+        return self._ink_status
+
 
 class Xerox(OfficeEquipment):
     def __init__(self, brand, model):
