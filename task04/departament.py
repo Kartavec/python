@@ -60,6 +60,11 @@ class Departament:
     def get_printers_empty_ink(self):
         return [printer for printer in self.storage['printer'] if printer.ink_status == 'EMPTY']
 
+    def get_xerox_low_toner(self):
+        return [xerox for xerox in self.storage['xerox'] if xerox.toner_status == 'LOW']
+
+    def get_xerox_empty_toner(self):
+        return [xerox for xerox in self.storage['xerox'] if xerox.toner_status == 'EMPTY']
+
     def remove_device(self, category, device):
         self.storage[category].remove(device)
-

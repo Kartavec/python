@@ -99,6 +99,10 @@ class Xerox(OfficeEquipment):
             self._toner_level -= random.randint(1, 10) / 30
             self.__update_toner_status()
 
+    @property
+    def toner_status(self):
+        return self._toner_status
+
     def toner_refill(self):
         self._toner_level = 100
         self._toner_status = 'FULL'
