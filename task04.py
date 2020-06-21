@@ -65,6 +65,20 @@ if __name__ == '__main__':
     print_storage(main_warehouse)
     print_storage(main_office)
 
+    # Получить технику определённой категории хранилища по категории
+    print(f'Техника в офисе {main_office} категории "xerox"')
+    print(main_office.get_devices_by_category('xerox'))
+    print()
+
+    # Проверка на правильность указания категории
+    print(main_office.get_devices_by_category('xerx'))
+    print()
+
+    # Поиск девайся по серийному номеру
+    serial_number = main_office.get_devices_by_category('printer')['printer'][0].serial_number
+    print(main_office.get_device_by_serial(serial_number))
+    print()
+
     # Просмотр рандомного принтера в офисе, статус сменился на 'IN USE'
     random_printer = main_office.storage['printer'][0]
     print(random_printer)
@@ -110,3 +124,6 @@ if __name__ == '__main__':
 
     main_service_center.sent_device(main_office, random_xerox)
     print(random_xerox)
+
+    print(random_xerox.__dict__)
+    print(random_printer.ink_level)
