@@ -6,7 +6,7 @@ LOTO_MAX_NUMBER = 90
 
 
 def barrels_sack(max_num):
-    barrels = random.sample(range(1, 91), 90)
+    barrels = random.sample(range(1, max_num + 1), max_num)
     while len(barrels):
         yield barrels.pop()
 
