@@ -1,0 +1,7 @@
+sec = int(input("Введите время в секундах: "))
+hour = sec // 3600
+residue = sec % 3600
+minute = residue // 60
+sec1 = residue % 60
+
+print(f" {sec} секунд составляет чч:мм:сс - {hour}:{minute}:{sec1}")
