@@ -1,0 +1,5 @@
+n = int(input("Введите любое целое число: "))
+nn = int(str(f"{n}{n}"))
+nnn = int(str(f"{n}{n}{n}"))
+sum = n + nn + nnn
+print (f"ваше число n по формуле n+nn+nnn = {sum}")

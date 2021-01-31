@@ -1,0 +1,4 @@
+hight = float(input("Введите высоту стены: "))
+length = float(input("Введите дину стены: "))
+square = hight * length
+print("Площадь стены равна ", square)
