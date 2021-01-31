@@ -1,1 +1,3 @@
-print("Привет мир")
+print("hello")
+
+print('ok')
