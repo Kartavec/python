@@ -1,0 +1,85 @@
+Home work lesson 5
+
+HW_5.1 (use file inputs.txt)
+
+my_file = open('inputs.txt', 'w')
+my_file.close()
+
+my_file = open('inputs.txt', 'a')
+inputs = input('Input data ')
+while inputs != str(""):
+    my_file.write(inputs)
+    my_file.write("\n")
+    inputs = input('Input data ')
+my_file.close()
+
+starline = "*" * 20
+print(f"{starline}\n you have finished data insertion, please check file inputs.txt\n {starline}\n")
+
+print('just to check result in inputs.txt file')
+
+my_file = open("inputs.txt", "r")
+for line in my_file:
+    print(line)
+my_file.close()
+
+
+
+
+
+
+
+
+
+HW_5.2 (use file count.txt)
+
+with open("count.txt", "r") as my_file:
+    s = 0 # string number
+    sn = 0 # number of strings
+
+    for line in my_file:
+        s = s + 1
+        sn = sn + 1
+        w = 0 # number of words
+        w = w + len(line.split())
+        print(f"in the line {s} there are {w} word")
+
+    print(f"in the file count.txt there are {sn} strings")
+
+
+
+
+
+HW_5.3 (use file employees.txt)
+
+with open('employees.txt', 'r') as my_file:
+    nam = []
+    sal = []
+    my_list = my_file.read().split('\n')
+    for i in my_list:
+        i = i.split()
+        if float(i[1]) < 20000:
+           sal.append(i[0])
+        nam.append(i[1])
+print(f'Salary is lower than 20.000 for {sal}, the average salary is {sum(map(float, nam)) / len(nam
+
+
+
+
+
+
+
+
+HW_5.4 (use file digits.txt)
+
+rus = {'One': 'Один', 'Two': 'Два', 'Three': 'Три', 'Four': 'Четыре'}
+rus_file = []
+with open('digits.txt', 'r') as file_obj:
+    content = file_obj.read().split('\n')
+    for i in content:
+        i = i.split(' ', 1)
+        rus_file.append(rus[i[0]] + '  ' + i[1])
+    print(rus_file)
+
+with open('rus_digits.txt', 'w') as file_obj2:
+    file_obj2.writelines(rus_file)
