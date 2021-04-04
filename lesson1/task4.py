@@ -8,5 +8,4 @@ while v>0:
     if prob > max_val:
         max_val = prob
     v=v//10
-
 print(max_val)
