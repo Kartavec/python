@@ -1,3 +1,4 @@
+import pprint
 
 storage =[]
 
@@ -22,4 +23,4 @@ while 1:
                 'цена':list(set([v for elem in storage for k,v in elem[1].items() if k=='цена'])),
                 'количество':list(set([v for elem in storage for k,v in elem[1].items() if k=='количество'])),
                 'ед':list(set([v for elem in storage for k,v in elem[1].items() if k=='ед']))}
-        print(display)
+        pprint.pprint(display, sort_dicts=False)
