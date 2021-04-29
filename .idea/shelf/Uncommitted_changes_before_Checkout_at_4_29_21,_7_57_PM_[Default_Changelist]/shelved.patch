@@ -1,0 +1,23 @@
+Index: hello.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>earnings = int(input(\"Enter the company earnings: \"))\nexpenses = int(input(\"Enter the company expenses: \"))\nif earnings < expenses:\n    print(\"Your company is non profitable \")\n\nelse:\n    profit = earnings - expenses\n    print(f\"Your company's profit is {profit}\")\ne = int(input(\"Write the number of employees on your company\"))\ne = e / profit\nprint(f\"Pforit for 1 employee {e}\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hello.py b/hello.py
+--- a/hello.py	(revision 21aa6c173d72f7b979c4335bec01fd89b632e654)
++++ b/hello.py	(date 1619715416090)
+@@ -1,11 +1,0 @@
+-earnings = int(input("Enter the company earnings: "))
+-expenses = int(input("Enter the company expenses: "))
+-if earnings < expenses:
+-    print("Your company is non profitable ")
+-
+-else:
+-    profit = earnings - expenses
+-    print(f"Your company's profit is {profit}")
+-e = int(input("Write the number of employees on your company"))
+-e = e / profit
+-print(f"Pforit for 1 employee {e}")
+\ No newline at end of file
