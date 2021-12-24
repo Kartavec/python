@@ -1,1 +1,1 @@
-# python
+novitsky_daniil_dz_1
