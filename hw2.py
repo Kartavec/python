@@ -1,0 +1,5 @@
+time_in_sec = int(input('Время в секундах: '))
+hours = int(time_in_sec // 3600)
+min = int((time_in_sec // 60) % 60)
+sec = int(time_in_sec % 60)
+print(f" Time in format: {hours} : {min} : {sec}")
