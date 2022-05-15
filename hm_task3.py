@@ -11,10 +11,11 @@ def check_var2(word):
         print(word, "cannot be transformed to bytes")
 
 
-words_bank = ["attribute", "класс", "функция", "type"]
-print("var 1:")
-for i in words_bank:
-    check_var1(i)
-print("\nvar 2:")
-for i in words_bank:
-    check_var2(i)
+if __name__ == "__main__":
+    words_bank = ["attribute", "класс", "функция", "type"]
+    print("var 1:")
+    for i in words_bank:
+        check_var1(i)
+    print("\nvar 2:")
+    for i in words_bank:
+        check_var2(i)
