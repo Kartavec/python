@@ -1,0 +1,34 @@
+Index: hm_task6.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from random import choice\r\nfrom chardet import detect\r\n\r\n\r\ndef make_file():\r\n    with open(file_name, \"w\", encoding=my_choice) as f:\r\n        f.writelines(words_array)\r\n\r\n\r\ndef what_is_encoding():\r\n    with open(file_name, \"rb\") as f:\r\n        data = f.read()\r\n    return detect(data)['encoding']\r\n\r\n\r\ndef open_correct(correct_code):\r\n    print(\"Correct encoding is\", correct_code)\r\n    with open(file_name, \"r\", encoding=correct_code) as f:\r\n        data = f.read()\r\n    print(data)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    file_name = \"test_file.txt\"\r\n    coding_array = [\"utf-8\", \"utf-16\", \"utf-32\"]\r\n    words_array = [\"сетевое программирование\\n\", \"сокет\\n\", \"декоратор\"]\r\n    my_choice = choice(coding_array)\r\n    make_file()\r\n    open_correct(what_is_encoding())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hm_task6.py b/hm_task6.py
+--- a/hm_task6.py	(revision ecb3679a6f5304adc76b951ad253a626c45c08d1)
++++ b/hm_task6.py	(date 1652844312629)
+@@ -9,8 +9,7 @@
+ 
+ def what_is_encoding():
+     with open(file_name, "rb") as f:
+-        data = f.read()
+-    return detect(data)['encoding']
++        return detect(f.read())['encoding']
+ 
+ 
+ def open_correct(correct_code):
+Index: test_file.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-32LE
+===================================================================
+diff --git a/test_file.txt b/test_file.txt
+new file mode 100644
+--- /dev/null	(date 1652844313239)
++++ b/test_file.txt	(date 1652844313239)
+@@ -0,0 +1,3 @@
++сетевое программирование
++сокет
++декоратор
+\ No newline at end of file
