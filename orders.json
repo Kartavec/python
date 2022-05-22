@@ -1,0 +1,25 @@
+{
+    "orders": [
+        {
+            "item": "PC",
+            "quantity": 2,
+            "price": 140000,
+            "buyer": "Ivanov Ivan Ivanovich",
+            "date": "2022-05-23"
+        },
+        {
+            "item": "PC",
+            "quantity": 2,
+            "price": 140000,
+            "buyer": "Ivanov Ivan Ivanovich",
+            "date": "2022-05-23"
+        },
+        {
+            "item": "PC",
+            "quantity": 2,
+            "price": 140000,
+            "buyer": "Ivanov Ivan Ivanovich",
+            "date": "2022-05-23"
+        }
+    ]
+}
