@@ -10,27 +10,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\examples\01_csv\kp_data_write_1.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\examples\01_csv\kp_data_write_2.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\examples\01_csv\kp_data_write_3.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>

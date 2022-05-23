@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f38633ba-2a32-479a-88d3-40ac72b42113" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/csv_read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/csv_write.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_delimiter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_dictwriter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_write_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_write_1_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_write_2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/01_csv/kp_data_write_3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/data_type_change.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/dict_to_json.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/json_read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/json_write.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/mes_example_read.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/mes_example_write_1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/mes_example_write_2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/mes_example_write_3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/mes_example_write_4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/02_json/tuple_ex.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/data_read.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/data_write.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/data_write_1.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/data_write_2.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/data_write_3.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/pyyaml_examples.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/pyyaml_examples_ allow_unicode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/03_yaml/yaml_examples.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/homework_materials/info_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/homework_materials/info_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/homework_materials/info_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/homework_materials/orders.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hm3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/info_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/info_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/info_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orders.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temmmmmp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f38633ba-2a32-479a-88d3-40ac72b42113" name="Changes" comment="-" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +176,7 @@
       <workItem from="1652914116863" duration="427000" />
       <workItem from="1652914575116" duration="8216000" />
       <workItem from="1653189767724" duration="506000" />
-      <workItem from="1653256177426" duration="5822000" />
+      <workItem from="1653256177426" duration="6505000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <created>1652570605328</created>
@@ -282,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652914662194</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="-">
+      <created>1653262309547</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653262309547</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
