@@ -40,6 +40,8 @@ def main():
         print(answer)
     except (ValueError, json.JSONDecodeError):
         print('Не удалось декодировать сообщение сервера.')
+    transport.shutdown(socket.SHUT_RDWR)
+    transport.close()
 
 
 if __name__ == '__main__':
