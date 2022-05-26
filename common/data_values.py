@@ -1,0 +1,15 @@
+DEFAULT_SERVER_PORT = 5555
+DEFAULT_SERVER_ADR = "127.0.0.1"
+DEFAULT_ENCODING = "UTF-8"
+DEFAULT_MAX_CLIENTS = 10
+DEFAULT_LIMIT_MESSAGE = 1024
+
+
+ACTION = 'action'
+TIME = 'time'
+USER = 'user'
+ACCOUNT_NAME = 'account_name'
+
+PRESENCE = 'presence'
+RESPONSE = 'response'
+ERROR = 'error'
