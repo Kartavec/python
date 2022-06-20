@@ -7,11 +7,12 @@ from common import data_function
 from common.data_function import get_message, send_message
 from common.data_values import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR
 import logmydata.config_log_server
+from logmydata.decorator_log import log
 
 
 SERVER_LOGGER = logging.getLogger('server')
 
-
+@log
 def process_client_message(message):
     SERVER_LOGGER.debug(f'Разбор сообщения от клиента : {message}')
     if ACTION in message and message[ACTION] == PRESENCE and TIME in message \

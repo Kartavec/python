@@ -1,0 +1,6 @@
+2022-06-03 11:14:58,867 DEBUG server.py Сервер будет запущен на 127.0.0.1 Порт 5555
+2022-06-03 11:15:08,164 INFO server.py Установлено соедение с <socket.socket fd=436, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 5555), raddr=('127.0.0.1', 49529)> ('127.0.0.1', 49529)
+2022-06-03 11:15:08,164 INFO server.py Сообщение от клиента - {'action': 'presence', 'time': 1654215308.1644933, 'user': {'account_name': 'Guest'}}
+2022-06-03 11:15:08,164 DEBUG server.py Разбор сообщения от клиента : {'action': 'presence', 'time': 1654215308.1644933, 'user': {'account_name': 'Guest'}}
+2022-06-03 11:15:08,164 DEBUG server.py Статус : 200 - OK
+2022-06-03 11:15:08,164 INFO server.py ЗАКРЫТО установленое соедение с <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0> ('127.0.0.1', 49529)

@@ -6,8 +6,9 @@ from common.data_values import DEFAULT_LOGGING_LEVEL, DEFAULT_LOGFILENAME_CLIENT
 
 CLIENT_FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
 
-PATH = os.path.dirname(os.path.abspath(__file__))
-PATH = os.path.join(PATH, DEFAULT_LOGFILENAME_CLIENT)
+temm = os.path.abspath(os.path.join(__file__, ".."))
+temm = os.path.dirname(temm)
+PATH = os.path.join(temm, "logs", f'{DEFAULT_LOGFILENAME_CLIENT}')
 
 
 STREAM_HANDLER = logging.StreamHandler(sys.stderr)

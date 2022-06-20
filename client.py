@@ -7,11 +7,12 @@ from common.data_values import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, \
     RESPONSE, ERROR, DEFAULT_SERVER_ADR, DEFAULT_SERVER_PORT
 from common.data_function import get_message, send_message, check_argv
 import logmydata.config_log_client
+from logmydata.decorator_log import log
 
 
 CLIENT_LOGGER = logging.getLogger('client')
 
-
+@log
 def create_presence(account_name='Guest'):
     out = {
         ACTION: PRESENCE,
@@ -23,7 +24,7 @@ def create_presence(account_name='Guest'):
     CLIENT_LOGGER.debug(f'Сформировано {PRESENCE} сообщение для пользователя {account_name} c временем {time.time()}')
     return out
 
-
+@log
 def process_ans(message):
 
     if RESPONSE in message:
