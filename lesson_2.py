@@ -72,7 +72,7 @@ my_range = [7, 5, 3, 3, 2]
 print(my_range)
 o = 0
 while my_range[o] >= num_input:
-   o += 1
-my_range.insert(o, num_input)
+   ii += 1
+my_range.insert(ii, num_input)
 print(my_range)
 
