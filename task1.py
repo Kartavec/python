@@ -1,12 +1,11 @@
 a = 77
 b = 'python'
 c = '@!&'
+d = input('What is your name?\t')
+e = int(input('How years old are you?\t'))
 
-d = input('What is your name?')
-e = int(input('How years old are you?'))
-
-print (a)
-print (b)
-print (c)
-print (d)
-print (e)
+print(a)
+print(b)
+print(c)
+print(f'\nMy name is {d}.')
+print(f'I am {e} years old.')
