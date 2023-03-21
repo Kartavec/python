@@ -1,5 +1,6 @@
 cost = int(input('Please, enter cost value.\n'))
 revenue = int(input('Please, enter profit value.\n'))
+
 if revenue > cost:
     print('The company makes a profit. You are doing great! ')
 elif revenue < cost:
