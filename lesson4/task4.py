@@ -5,3 +5,5 @@ generator = (numb for numb in my_list if my_list.pop(my_list.index(numb)) not in
 for i in generator:
     new_list.append(i)
 print(new_list)
+
+# generator = [el for el in pr_list if pr_list.count(el == 1)]
